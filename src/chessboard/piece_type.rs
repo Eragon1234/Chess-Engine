@@ -1,4 +1,4 @@
-pub enum PieceTyp {
+pub enum PieceType {
     Pawn,
     Knight,
     Bishop,
