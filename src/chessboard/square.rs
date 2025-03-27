@@ -35,3 +35,15 @@ impl From<(usize, usize)> for Square {
         Square::from(value.0 * 8 + value.1)
     }
 }
+
+impl From<&str> for Square {
+    fn from(value: &str) -> Self {
+        let mut chars = value.chars();
+
+        // file is a letter from 'a' to 'h', 'a' is file 0, 'h' is file 7
+        let file = chars.next().unwrap() as usize - 'a' as usize;
+        let rank = chars.next().unwrap().to_digit(10).unwrap() as usize;
+
+        Square::from((rank - 1, file))
+    }
+}
